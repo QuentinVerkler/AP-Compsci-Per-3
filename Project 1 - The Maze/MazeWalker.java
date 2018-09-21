@@ -7,9 +7,9 @@
  */
 public class MazeWalker
 {
-    
-   public void walkMaze(Maze maze, MazeBot mazeBot){
-       
+       public static void run(){
+        Maze maze = new Maze();
+        MazeBot mazeBot = maze.getMazeBot();
        while(mazeBot.didNotReachGoal() == true){
          if (mazeBot.canMoveForward() == true){
             mazeBot.moveForward(); 

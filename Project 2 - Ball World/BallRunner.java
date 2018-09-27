@@ -7,7 +7,7 @@
  */
 public class BallRunner
 {
-    public static void run(){
+    public static void activity1(){
      BallWorld ballWorld = new BallWorld(200, 200);   
      BallBot ballBot = new BallBot(ballWorld, new TGPoint(0.0, 0.0), 90.0, 30);
      while(true){
@@ -34,15 +34,27 @@ public class BallRunner
         }
         return ballArray;
     }
-    
+            
     public static void activity2(){
      BallWorld ballWorld = new BallWorld(200, 200); 
      TGPoint entryPoint = new TGPoint(0.0, 0.0);
      BallBot[] ballBotArray = new BallBot[10];
      BallRunner ballRunner = new BallRunner();
      while(true){
-         ballBot.findFreeBallBotIndex(BallBot[10], ballBotArray){
+         int freeindex = ballRunner.findFreeBallBotIndex(ballBotArray);
+         if(freeindex < ballBotArray.length){
              
+             ballBotArray[freeindex] = new BallBot(ballWorld, entryPoint, (int)(Math.random())*360, 20);
+            }
+         for( int index = 0; index < ballBotArray.length; index++){
+             if(ballBotArray[index] != null){
+                     if(ballBotArray[index].canMoveForward(ballWorld) == true){
+                         ballBotArray[index].moveForward();
+                        }
+                        else{
+                            ballBotArray[index].setHeading(Math.random() *360);
+                        }
+                }
             }
         }
     }

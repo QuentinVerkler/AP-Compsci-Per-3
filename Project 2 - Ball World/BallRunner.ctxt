@@ -2,7 +2,7 @@
 comment0.target=BallRunner
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ BallRunner\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
-comment1.target=void\ run()
+comment1.target=void\ activity1()
 comment2.params=ballBotArray
 comment2.target=int\ findFreeBallBotIndex(BallBot[])
 comment3.params=

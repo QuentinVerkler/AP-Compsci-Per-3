@@ -124,12 +124,13 @@ public class BallRunner
             //checks if otherBallBot is null or not equal to ballBot parameter.
             //if either true, returns null
             if(otherBallBot != null & otherBallBot != ballBot){
-                double currentDistance = ballRunner.distanceBetweenPoints(ballBotArray[i].getPoint(), otherBallBot.getPoint());
+                double currentDistance = ballRunner.distanceBetweenPoints(ballBot.getPoint(), otherBallBot.getPoint());
                 //if the current distance between the two balls is less then their radii combined
                 //then stop. Else, go to next condition
                 if(currentDistance <= ballBot.getRadius() + otherBallBot.getRadius()){
                     double nextDistance = ballRunner.distanceBetweenPoints(nextPoint, otherBallBot.getPoint());
-                    
+                    //if the next distance it will be at is less or equal to currentDistance
+                    //the ballBot bounce off
                     if(nextDistance <= currentDistance){
                         return otherBallBot;
                     }
@@ -140,4 +141,38 @@ public class BallRunner
         
     }
     
+    //run method activity 4
+    public static void activity4(){
+        BallWorld ballWorld = new BallWorld(600, 600);
+        TGPoint entryPoint = new TGPoint(0.0, 0.0);
+        BallBot[] ballBotArray = new BallBot[10];
+        BallRunner ballRunner = new BallRunner();
+        while(true){
+            int r = (int)(Math.random()*20)+1;
+            //checks if entry clear
+            if(ballRunner.entranceClear(ballBotArray, entryPoint) == true){
+                int freeIndex = ballRunner.findFreeBallBotIndex(ballBotArray);
+                if(freeIndex < ballBotArray.length){
+                    ballBotArray[freeIndex] = new BallBot(ballWorld, entryPoint, (int)(Math.random()*360), r);
+                }
+            }
+            //how balls move
+            for(int i = 0; i < ballBotArray.length; i++){
+                if(ballBotArray[i] != null){
+                    if(ballBotArray[i].canMoveForward(ballWorld) == true){
+                        if(ballRunner.ballBotToBounceOff(ballBotArray[i], ballBotArray) == null){
+                            ballBotArray[i].moveForward();
+                        }
+                        else{
+                            ballBotArray[i].setHeading(360.0*Math.random());
+                        }
+                    }
+                    else{
+                        ballBotArray[i].setHeading(360.0*Math.random());
+                    }
+                }
+            }
         }
+    }
+    
+}

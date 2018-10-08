@@ -8,61 +8,67 @@
 public class SentenceBuilder
 {
     //the string arrays
-    String[] nouns = {"Dylan" , "slayer" , "soul" , "savage" , "John"};
-    String[] verbs = {"sings" , "walks" , "jumps" , "sees" , "eats"};
-    String[] adjectives = {"tall" , "rageful" , "barbaric" , "short" , "stout"};
-    String[] determiners = {"the" , "my" , "your" , "his" , "her"};
-    String[] adverbs = {"cruelly" , "angrily" , "quickly" , "forcefully" , "never"};
-    String[] prepositions = {"near" , "behind" , "under" , "ahead" , "on"};
+    static String[] nouns = {"Dylan" , "slayer" , "soul" , "savage" , "John"};
+    static String[] verbs = {"sings" , "walks" , "jumps" , "sees" , "eats"};
+    static String[] adjectives = {"tall" , "rageful" , "barbaric" , "short" , "stout"};
+    static String[] determiners = {"the" , "my" , "your" , "his" , "her"};
+    static String[] adverbs = {"cruelly" , "angrily" , "quickly" , "forcefully" , "never"};
+    static String[] prepositions = {"near" , "behind" , "under" , "ahead" , "on"};
     
     //all the random word getters
-    public String getRandomNoun(){
+    public static String getRandomNoun(){
         String noun = nouns[(int)(Math.random()*nouns.length)];
         return noun;
     }
     
-    public String getRandomVerb(){
+    public static String getRandomVerb(){
         String verb = verbs[(int)(Math.random()*verbs.length)];
         return verb;
     }
     
-    public String getRandomAdjective(){
+    public static String getRandomAdjective(){
         String adjective = adjectives[(int)(Math.random()*adjectives.length)];
         return adjective;
     }
     
-    public String getRandomDeterminer(){
+    public static String getRandomDeterminer(){
         String determiner = determiners[(int)(Math.random()*determiners.length)];
         return determiner;
     }
     
-    public String getRandomAdverb(){
+    public static String getRandomAdverb(){
         String adverb = adverbs[(int)(Math.random()*adverbs.length)];
         return adverb;
     }
     
-    public String getRandomPreposition(){
+    public static String getRandomPreposition(){
         String preposition = prepositions[(int)(Math.random()*prepositions.length)];
         return preposition;
     }
     
     //phrase getters
-    public String getNounPhrase(){
+     static String getNounPhrase(){
         String nounPhrase = getRandomDeterminer() + " " + getRandomAdjective() + " " + getRandomNoun();
         return nounPhrase;
     }
     
-    public String getVerbPhrase(){
+    public static String getVerbPhrase(){
         String verbPhrase = getRandomAdverb() + " " + getRandomVerb();
         return verbPhrase;
     }
     
-    public String getPrepositionalPhrase(){
+    public static String getPrepositionalPhrase(){
         String prepositionalPhrase = getRandomPreposition() + " " + getRandomDeterminer() + " " + getRandomAdjective() + " " + getRandomNoun();
         return prepositionalPhrase;
     }
     
-    public void loadSentences(){
-        System.out.println(getNounPhrase() + " " + getVerbPhrase() + " " + getPrepositionalPhrase());
+    //the sentence making
+    public static String loadSentence(){
+        String sentence = getNounPhrase() + " " + getVerbPhrase() + " " + getPrepositionalPhrase();
+        return sentence;
+    }
+    
+    public static void run(){
+        System.out.println(SentenceBuilder.loadSentence());
     }
 }

@@ -18,22 +18,37 @@ public class Gibberish
         int currentSourceIndex = 0;
         String resultString = "";
         //the actual maker of the gibberish sentence
-        while(currentSourceIndex <= sourceString.length()){
+        while(sourceString.contains(">")){
             int index = sourceString.indexOf("<");
             //if there is no more "<", then it will exit
             if(index == -1){
-                resultString += sourceString.substring(index);
-                currentSourceIndex = sourceString.length();
             //if not, then replace the word with a gibberish one
             }else{
-                int end = sourceString.indexOf(">");
-                int beginning = index +1;
-                String placeHolderString = sourceString.substring(beginning, end);
-                resultString += wordlist5000.getRandomWordString(placeHolderString);
-                currentSourceIndex = sourceString.indexOf("</>");
+                int beginning = index;
+                //check if it's a noun
+                if(sourceString.indexOf("<N>") == index){
+                    int end = sourceString.indexOf("</>");
+                    if(wordlist5000.getRandomWordString("N") != null){
+                        sourceString = sourceString.substring(0, index) + wordlist5000.getRandomWordString("N") + sourceString.substring(end+ 3);
+                    }
+                    //then checks if a verb
+                }else if(sourceString.indexOf("<v>") == index){
+                    int end = sourceString.indexOf("</>");
+                    if(wordlist5000.getRandomWordString("v") != null){
+                        sourceString = sourceString.substring(0, index) + wordlist5000.getRandomWordString("v") + sourceString.substring(end+ 3);
+                    }
+                }
+                //then checks if an adjective
+                else if(sourceString.indexOf("<t>") == index){
+                    int end = sourceString.indexOf("</>");
+                    if(wordlist5000.getRandomWordString("v") != null){
+                        sourceString = sourceString.substring(0, index) + wordlist5000.getRandomWordString("t") + sourceString.substring(end+ 3);
+                    }
+                }
             }
             
         }
-        return resultString;
+        //if everthing checks out, it will return the revised sourceString
+        return sourceString;
     }
 }

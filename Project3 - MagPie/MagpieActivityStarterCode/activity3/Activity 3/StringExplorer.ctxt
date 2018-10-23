@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=StringExplorer
+comment0.text=\r\n\ A\ program\ to\ allow\ students\ to\ try\ out\ different\ \r\n\ String\ methods.\ \r\n\ @author\ Laurie\ White\r\n\ @version\ April\ 2012\r\n
+comment1.params=
+comment1.target=void\ main()
+comment2.params=statement\ goal\ startPos
+comment2.target=int\ findKeyword(java.lang.String,\ java.lang.String,\ int)
+numComments=3

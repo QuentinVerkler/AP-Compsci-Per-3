@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Student
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Student\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=Student()
+comment2.params=
+comment2.target=java.lang.String\ getFullName()
+comment3.params=
+comment3.target=double\ getGPA()
+comment4.params=
+comment4.target=int\ getStuNumber()
+comment5.params=name
+comment5.target=void\ setFirstName(java.lang.String)
+comment6.params=name
+comment6.target=void\ setMiddleName(java.lang.String)
+comment7.params=name
+comment7.target=void\ setLastName(java.lang.String)
+comment8.params=num
+comment8.target=void\ setStuNum(int)
+comment9.params=dec
+comment9.target=void\ setGPA(double)
+numComments=10

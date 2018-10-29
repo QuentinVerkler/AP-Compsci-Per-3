@@ -31,6 +31,9 @@ import java.util.Scanner;
         while(!input.equals("Bye")){
             StudListRunner.menuNumber(input);
             input = in.nextLine();
+            if(input == "1"){
+                studList.addStudentToList();
+            }
         }
     }
     

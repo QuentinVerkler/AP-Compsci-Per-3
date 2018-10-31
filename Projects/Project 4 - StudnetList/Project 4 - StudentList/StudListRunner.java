@@ -27,14 +27,19 @@ import java.util.Scanner;
         //Setting up StudentLIst, giving it user input
         StudentList studList = new StudentList();
         Scanner in = new Scanner (System.in);
-	String input = in.nextLine();
+    String input = in.nextLine();
         while(!input.equals("Bye")){
             StudListRunner.menuNumber(input);
-            input = in.nextLine();
-            if(input == "1"){
-                studList.addStudentToList();
-            }else if(input == "2"){
-                studList.printStudentList();
+            //input = in.nextLine();
+            if(input.equals("1")){
+                //int exit = 0;
+                    //while(exit == 0){
+                        studList.addStudentToList();
+                        System.out.print("\u000c");
+                        //exit = 1;
+                //}
+            }else if(input.equals("2")){
+                studList.printStudent();
             }
             
         }

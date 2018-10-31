@@ -20,10 +20,13 @@ package.divider.vertical=0.8003992015968064
 package.editor.height=394
 package.editor.width=670
 <<<<<<< HEAD
+<<<<<<< HEAD
 package.editor.x=833
 package.editor.y=110
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 427f9e2d3daf43e573512e4c00704f362213ac67
 package.editor.x=40
 package.editor.y=40
 package.frame.height=600

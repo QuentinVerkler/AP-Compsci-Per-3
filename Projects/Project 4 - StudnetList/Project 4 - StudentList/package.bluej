@@ -1,4 +1,10 @@
 #BlueJ package file
+<<<<<<< HEAD
+editor.fx.0.height=1129
+editor.fx.0.width=992
+editor.fx.0.x=2
+editor.fx.0.y=5
+=======
 dependency1.from=StudListRunner
 dependency1.to=StudentList
 dependency1.type=UsesDependency
@@ -6,17 +12,31 @@ editor.fx.0.height=1038
 editor.fx.0.width=1022
 editor.fx.0.x=894
 editor.fx.0.y=3
+>>>>>>> e0403c7328b9dd4e172c86443af0aa60c759b3fe
 objectbench.height=93
 objectbench.width=760
 package.divider.horizontal=0.6
 package.divider.vertical=0.8003992015968064
 package.editor.height=394
 package.editor.width=670
+<<<<<<< HEAD
 package.editor.x=833
 package.editor.y=110
+=======
+<<<<<<< HEAD
+package.editor.x=40
+package.editor.y=40
+package.frame.height=600
+package.frame.width=800
+package.numDependencies=0
+=======
+package.editor.x=864
+package.editor.y=130
+>>>>>>> 427f9e2d3daf43e573512e4c00704f362213ac67
 package.frame.height=600
 package.frame.width=800
 package.numDependencies=1
+>>>>>>> e0403c7328b9dd4e172c86443af0aa60c759b3fe
 package.numTargets=2
 package.showExtends=true
 package.showUses=true
@@ -31,12 +51,22 @@ target1.name=StudentList
 target1.showInterface=false
 target1.type=ClassTarget
 target1.width=100
+<<<<<<< HEAD
+target1.x=70
+target1.y=70
+=======
 target1.x=110
 target1.y=10
+>>>>>>> e0403c7328b9dd4e172c86443af0aa60c759b3fe
 target2.height=50
 target2.name=StudListRunner
 target2.showInterface=false
 target2.type=ClassTarget
 target2.width=120
+<<<<<<< HEAD
+target2.x=100
+target2.y=210
+=======
 target2.x=10
 target2.y=120
+>>>>>>> e0403c7328b9dd4e172c86443af0aa60c759b3fe

@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 /**
  * Write a description of class StudentList here.
  *
@@ -8,59 +8,71 @@
 import java.util.ArrayList;
 public class StudentList
 {
-    private static String firstName;
-    private static String middleName;
-    private static String lastName;
-    private static int stuNumber;
-    private static double gpa;
-    private static  ArrayList<StudentList> studentList = new ArrayList<StudentList>();
-    public static void studentListConstructor(String name1, String name2, String name3, int num, double grade){
-        firstName = name1;
-        middleName = name2;
-        lastName = name3;
-        stuNumber = num;
-        gpa = grade;
+    ArrayList<Student> studentList;
+    public StudentList(){
+        studentList = new ArrayList<Student>();
     }
-    public static void addStudentToList(String name, int number, double grade){
+    
+    public void addStudentToList(){
+        System.out.println("Please type in student name.");
+        Scanner input = new Scanner(System.in);
+        String name = input.nextLine();
+        String firstName;
+        String middleName;
+        String lastName;
         //if First Middle Last
+        
+        Student s1 = new Student();
         if(name.indexOf(",") == -1){
-            int endFirstName = name.indexOf(" "); 
-            firstName = name.substring(0, endFirstName);
+            int endFirstName = name.indexOf(" ");
+            s1.setFirstName(name.substring(0, endFirstName));
             int endMiddleName = name.indexOf(" ", endFirstName);
-            middleName = name.substring(endFirstName + 1, endMiddleName);
-            lastName = name.substring(endMiddleName + 1);
+            s1.setMiddleName(name.substring(endFirstName + 1, endMiddleName));
+            s1.setLastName(name.substring(endMiddleName + 1));
         }else 
         //if Last, First Middle
         if(name.indexOf(" ", name.indexOf(", ")) == -1){
             int endLastName = name.indexOf(",");
-            lastName = name.substring(0, endLastName);
+            s1.setLastName(name.substring(0, endLastName));
             int endFirstName = name.indexOf(" ", name.indexOf(", "));
-            firstName = name.substring(endLastName + 2, endFirstName);
-            middleName = name.substring(endFirstName + 1);
+            s1.setFirstName(name.substring(endLastName + 2, endFirstName));
+            s1.setMiddleName(name.substring(endFirstName + 1));
         }
         //if Last, First
         else{
             int endLastName = name.indexOf(",");
-            lastName = name.substring(0, endLastName);
-            firstName = name.substring(endLastName + 2);
+            s1.setLastName(name.substring(0, endLastName));
+            s1.setFirstName(name.substring(endLastName + 2));
         }
-        stuNumber = number;
-        gpa = grade;
-        studentList.add(studentListConstructor(lastName, firstName, middleName, stuNumber, gpa));
+        //gets the student number
+        System.out.println("Please type in student number");
+        String num = input.nextLine();
+        int number = Integer.parseInt(num);
+        s1.setStuNum(number);
+        //gets the student gpa
+        System.out.println("Please type in gpa");
+        String dub = input.nextLine();
+        double gpa = Double.parseDouble(dub);
+        studentList.add(s1);
+        System.out.println("Your student has been added");
     }
-    public static void printStudentList(String statement){
+    public void printStudentList(){
+        System.out.println("Please type in student name or student number");
+        Scanner input = new Scanner(System.in);
+        String name = input.nextLine();
         //checks if name exists
-        if(statement.indexOf(firstName) != -1
-            || statement.indexOf(middleName) != -1
-            || statement.indexOf(lastName) != -1){
-            System.out.println(lastName + " , " + firstName + " " + middleName);
-            System.out.println(gpa);
-            System.out.println(stuNumber);
-        }else{
-            System.out.println("Student does not exist");
+        for(int i = 0; i <= studentList.size(); i++){
+            Student stuObject = studentList.get(i);
+            int endFirstName = name.indexOf(" ");
+            int endSecondName = name.indexOf(" ", endFirstName);
+            if(name.indexOf(stuObject.getFullName()) != -1){
+                
+            }
         }
     }
-    public static void printStudentList(int stuNum){
+    public void printStudentList(int stuNum){
+        
+        //chcks if the number exists
         if(stuNum == 0){
         System.out.println(lastName + " , " + firstName + " " + middleName);
         System.out.println(gpa);
@@ -69,28 +81,5 @@ public class StudentList
         System.out.println("Student does not exist");
     }
     }
-    public static String getFullName(){
-        return lastName + " , " + firstName + " " + middleName;
-    }
-    public static double getGPA(){
-        return gpa;
-    }
-    public static int getStuNumber(){
-        return stuNumber;
-    }
-    public static void setFirstName(String name){
-        firstName = name;
-    }
-    public static void setMiddleName(String name){
-        middleName = name;
-    }
-    public static void setLastName(String name){
-        lastName = name;
-    }
-    public static void setStuNum(int num){
-        stuNumber = num;
-    }
-    public static void setGPA(double dec){
-        gpa = dec;
-    }
+    
 }

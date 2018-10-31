@@ -33,7 +33,10 @@ import java.util.Scanner;
             input = in.nextLine();
             if(input == "1"){
                 studList.addStudentToList();
+            }else if(input == "2"){
+                studList.printStudentList();
             }
+            
         }
     }
     

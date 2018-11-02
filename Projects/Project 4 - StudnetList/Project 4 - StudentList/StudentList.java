@@ -59,7 +59,7 @@ public class StudentList
         System.out.println("Your student has been added. Press anything to continue");
         String exit = input.nextLine();
         System.out.print("\u000c");
-        
+
     }
     public void printStudent(){
         System.out.println("Please type in the last name of the student or student number");
@@ -183,6 +183,7 @@ public class StudentList
                     String exit = input.nextLine();
                     System.out.print("\u000c");
                 }
+
             }
         }
         //if nothing is found, then it wil tell the user
@@ -261,6 +262,14 @@ public class StudentList
         }
         System.out.println("Press anything to continue");
         String end = input.nextLine();
-        System.out.print("\u000c");
+
+            
+        
+        if(checkResponse.equals(" ")){
+            System.out.println("This student does not exist. Press anything to continue");
+            String exit = input.nextLine();
+            System.out.print("\u000c");
+        }
     }
+    
 }

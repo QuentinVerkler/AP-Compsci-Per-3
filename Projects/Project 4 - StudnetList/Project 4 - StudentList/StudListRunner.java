@@ -40,10 +40,7 @@ import java.util.Scanner;
             if(input.equals("1")){
                 
                         studList.addStudentToList();
-                        
-                        
-                        
-                
+
             }else if(input.equals("2")){
                 studList.deleteStudent();
             }else if(input.equals("3")){

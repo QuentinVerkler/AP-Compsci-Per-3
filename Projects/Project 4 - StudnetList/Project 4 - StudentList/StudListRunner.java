@@ -17,6 +17,10 @@ import java.util.Scanner;
     return statement;
     }
     public static void main(){
+        StudentList studList = new StudentList();
+        String input = " ";
+        System.out.print("\u000c");
+        while(!input.equals("Bye")){
         System.out.println("Press 1 to add student");
         System.out.println("Press 2 to delete student");
         System.out.println("Press 3 to edit a student");
@@ -25,20 +29,29 @@ import java.util.Scanner;
         System.out.println("Press 6 to print out a certain student");
         System.out.println("Type in 'Bye' to exit");
         //Setting up StudentLIst, giving it user input
-        StudentList studList = new StudentList();
+        
         Scanner in = new Scanner (System.in);
-    String input = in.nextLine();
-        while(!input.equals("Bye")){
+        input = in.nextLine();
+        
             StudListRunner.menuNumber(input);
             //input = in.nextLine();
             if(input.equals("1")){
                 //int exit = 0;
                     //while(exit == 0){
                         studList.addStudentToList();
-                        System.out.print("\u000c");
                         //exit = 1;
+                        
+                        
                 //}
             }else if(input.equals("2")){
+                studList.deleteStudent();
+            }else if(input.equals("3")){
+                studList.editStudent();
+            }else if(input.equals("4")){
+                studList.clearList();
+            }else if(input.equals("5")){
+                studList.printAllStudents();
+            }else if(input.equals("6")){
                 studList.printStudent();
             }
             

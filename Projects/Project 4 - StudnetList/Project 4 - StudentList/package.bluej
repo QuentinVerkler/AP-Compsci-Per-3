@@ -1,46 +1,22 @@
 #BlueJ package file
-dependency1.from=StudListRunner
-dependency1.to=StudentList
+dependency1.from=StudentList
+dependency1.to=Student
 dependency1.type=UsesDependency
-dependency2.from=StudentList
-dependency2.to=Student
+dependency2.from=StudListRunner
+dependency2.to=StudentList
 dependency2.type=UsesDependency
-<<<<<<< HEAD
-<<<<<<< HEAD
-editor.fx.0.height=1145
-editor.fx.0.width=979
-editor.fx.0.x=937
-editor.fx.0.y=3
-objectbench.height=140
-=======
-=======
->>>>>>> 34884fd41ded0a5df7edae5d04f058624c2f5afb
 editor.fx.0.height=1038
 editor.fx.0.width=1022
 editor.fx.0.x=894
 editor.fx.0.y=3
 objectbench.height=142
-<<<<<<< HEAD
->>>>>>> 34884fd41ded0a5df7edae5d04f058624c2f5afb
-=======
->>>>>>> 34884fd41ded0a5df7edae5d04f058624c2f5afb
 objectbench.width=760
 package.divider.horizontal=0.6
 package.divider.vertical=0.7025948103792415
 package.editor.height=345
 package.editor.width=670
-<<<<<<< HEAD
-<<<<<<< HEAD
-package.editor.x=808
-package.editor.y=352
-=======
 package.editor.x=906
 package.editor.y=260
->>>>>>> 34884fd41ded0a5df7edae5d04f058624c2f5afb
-=======
-package.editor.x=906
-package.editor.y=260
->>>>>>> 34884fd41ded0a5df7edae5d04f058624c2f5afb
 package.frame.height=600
 package.frame.width=800
 package.numDependencies=2

@@ -1,41 +1,22 @@
 #BlueJ package file
-<<<<<<< HEAD
 dependency1.from=StudListRunner
 dependency1.to=StudentList
 dependency1.type=UsesDependency
 dependency2.from=StudentList
 dependency2.to=Student
 dependency2.type=UsesDependency
-editor.fx.0.height=1148
-editor.fx.0.width=1022
-editor.fx.0.x=894
-editor.fx.0.y=3
-objectbench.height=140
-=======
-dependency1.from=StudentList
-dependency1.to=Student
-dependency1.type=UsesDependency
-dependency2.from=StudListRunner
-dependency2.to=StudentList
-dependency2.type=UsesDependency
 editor.fx.0.height=1038
 editor.fx.0.width=1022
 editor.fx.0.x=894
 editor.fx.0.y=3
-objectbench.height=93
->>>>>>> 715bfea982e49fa79a3a5b9405370c9e0458c3ae
+objectbench.height=142
 objectbench.width=760
 package.divider.horizontal=0.6
-package.divider.vertical=0.7065868263473054
-package.editor.height=347
+package.divider.vertical=0.7025948103792415
+package.editor.height=345
 package.editor.width=670
-<<<<<<< HEAD
-package.editor.x=1119
-package.editor.y=18
-=======
-package.editor.x=1021
-package.editor.y=336
->>>>>>> 715bfea982e49fa79a3a5b9405370c9e0458c3ae
+package.editor.x=906
+package.editor.y=260
 package.frame.height=600
 package.frame.width=800
 package.numDependencies=2
@@ -53,34 +34,19 @@ target1.name=StudentList
 target1.showInterface=false
 target1.type=ClassTarget
 target1.width=100
-<<<<<<< HEAD
-target1.x=160
-target1.y=80
-=======
 target1.x=110
 target1.y=10
->>>>>>> 715bfea982e49fa79a3a5b9405370c9e0458c3ae
 target2.height=50
 target2.name=StudListRunner
 target2.showInterface=false
 target2.type=ClassTarget
 target2.width=120
-<<<<<<< HEAD
-target2.x=20
-target2.y=220
-=======
 target2.x=10
 target2.y=120
->>>>>>> 715bfea982e49fa79a3a5b9405370c9e0458c3ae
 target3.height=50
 target3.name=Student
 target3.showInterface=false
 target3.type=ClassTarget
 target3.width=80
-<<<<<<< HEAD
-target3.x=360
-target3.y=20
-=======
 target3.x=210
 target3.y=160
->>>>>>> 715bfea982e49fa79a3a5b9405370c9e0458c3ae

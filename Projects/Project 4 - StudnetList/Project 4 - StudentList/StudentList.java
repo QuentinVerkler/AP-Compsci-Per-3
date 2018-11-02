@@ -59,7 +59,7 @@ public class StudentList
         System.out.println("Your student has been added. Press anything to continue");
         String exit = input.nextLine();
         System.out.print("\u000c");
-        //return 0;
+        
     }
     public void printStudent(){
         System.out.println("Please type in the last name of the student or student number");
@@ -185,6 +185,7 @@ public class StudentList
                 }
             }
         }
+        //if nothing is found, then it wil tell the user
         if(checkResponse.equals(" ")){
             System.out.println("This student does not exist. Press anything to continue");
             String exit = input.nextLine();
@@ -196,8 +197,8 @@ public class StudentList
     public void clearList(){
         System.out.println("Are you sure? Yes/No");
         Scanner input = new Scanner(System.in);
-        String yesNO = input.nextLine();
-        if(input.equals("Yes")){
+        String yesNo = input.nextLine();
+        if(yesNo.equals("Yes")){
             studentList.clear();
             System.out.println("The list has been cleared. Press anything to continue");
             String exit = input.nextLine();
@@ -208,6 +209,7 @@ public class StudentList
     
     public void printAllStudents(){
         Scanner input = new Scanner(System.in);
+        //for lood that gets all students
         for(int i = 0; i < studentList.size(); i++){
             Student stuObject = studentList.get(i);
             System.out.println(stuObject.getFullName());
@@ -217,6 +219,48 @@ public class StudentList
         }
         System.out.println("Press anything to continue");
         String exit = input.nextLine();
+        System.out.print("\u000c");
+    }
+    
+    public void filterSearchStudentList(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please input the lowest GPA or student number you wish to search for");
+        String num = input.nextLine();
+        String checkResponse = " ";
+        //if it has a decimal point, it's a gpa. Looks using gpa
+        if(num.indexOf(".") != -1){
+            double gpa = Double.parseDouble(num);
+            for(int i = 0; i < studentList.size(); i++){
+                Student stuObject = studentList.get(i);
+                if(stuObject.getGPA() > gpa){
+                    checkResponse = "Good";
+                    System.out.println(stuObject.getFullName());
+                    System.out.println(stuObject.getStuNumber());
+                    System.out.println(stuObject.getGPA());
+                    System.out.println(" ");
+                }
+            }
+        }
+        //if it doesn't have a decimal point, it's a student number. Looks using student number
+        else{
+            int stuNum = Integer.parseInt(num);
+            for(int i = 0; i < studentList.size(); i++){
+                Student stuObject = studentList.get(i);
+                if(stuObject.getStuNumber() > stuNum){
+                    checkResponse = "Good";
+                    System.out.println(stuObject.getFullName());
+                    System.out.println(stuObject.getStuNumber());
+                    System.out.println(stuObject.getGPA());
+                    System.out.println(" ");
+                }
+            }
+        }
+        //if nothing is found, then prints so such student exists
+        if(checkResponse.equals(" ")){
+            System.out.println("No such student exists");
+        }
+        System.out.println("Press anything to continue");
+        String end = input.nextLine();
         System.out.print("\u000c");
     }
 }

@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=ArrayRunner
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ ArrayRunner\ here.\r\n\r\n\ @\ Quentin\ Verkler\r\n@\ 1106
+comment1.params=
+comment1.target=void\ main()
+comment2.params=nums
+comment2.target=void\ loadArray(int[][])
+comment3.params=nums
+comment3.target=int\ sumAll(int[][])
+comment4.params=nums
+comment4.target=int\ findGreatest(int[][])
+comment5.params=nums
+comment5.target=int\ numberOfGreatest(int[][])
+comment6.params=nums
+comment6.target=double\ findAvg(int[][])
+numComments=7

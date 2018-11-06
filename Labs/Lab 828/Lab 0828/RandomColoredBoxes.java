@@ -1,4 +1,4 @@
-//© A+ Computer Science
+// A+ Computer Science
 // www.apluscompsci.com
 
 //for loop example with graphics

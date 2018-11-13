@@ -7,9 +7,7 @@ import java.util.ArrayList;
  */
 public class Card
 {
-    //all the card numbers
-    //private int[] nums = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
-    //private String[] type = new String[]{"Heart", "Diamond", "Spade", "Club"};
+    
     private int rank;
     private String suit;
     public Card(int x, String y){
@@ -17,4 +15,11 @@ public class Card
         suit = y;
     }
     
+    public int getRank(){
+        return rank;
+    }
+    
+    public String getSuit(){
+        return suit;
+    }
 }

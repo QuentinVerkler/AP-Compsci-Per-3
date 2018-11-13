@@ -7,6 +7,8 @@
  */
 public class Game
 {
-    Deck cards = new Deck();
-    Hand handCards = new Hand();
+    public Game(){
+        Deck cards = new Deck();
+        Hand handCards = new Hand();
+    }
 }

@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Hand
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Hand\ here.\r\n\r\n\ Quentin\ Verkler\r\n\ 1108\r\n
+comment1.params=
+comment1.target=Hand()
+comment2.params=x
+comment2.target=boolean\ sameSuit(Hand)
+comment3.params=x
+comment3.target=int\ onePair(Hand)
+numComments=4

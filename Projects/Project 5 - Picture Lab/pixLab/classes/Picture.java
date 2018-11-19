@@ -217,7 +217,74 @@ public class Picture extends SimplePicture
     }
   }
   
+  //keepOnlyBlue method
+  public void keepOnlyBlue(){
+      Pixel[][] pixels = this.getPixels2D();
+      for(int r = 0; r < pixels.length; r++){
+          for(int c = 0; c < pixels[r].length; c++){
+              pixels[r][c].setRed(0);
+              pixels[r][c].setGreen(0);
+            }
+        }
+    }
+    
+  //negate method
+  public void negate(){
+      Pixel[][] pixels = this.getPixels2D();
+      for(int r = 0; r < pixels.length; r++){
+          for(int c = 0; c < pixels[r].length; c++){
+              int red = 255 - pixels[r][c].getRed();
+              pixels[r][c].setRed(red);
+              pixels[r][c].setGreen(255 - pixels[r][c].getGreen());
+              pixels[r][c].setBlue(255 - pixels[r][c].getBlue());
+            }
+        }
+    }
   
+  //grayScale method
+  public void grayScale(){
+      Pixel[][] pixels = this.getPixels2D();
+      for(int r = 0; r < pixels.length; r++){
+          for(int c = 0; c < pixels[r].length; c++){
+              int average = (pixels[r][c].getRed() + pixels[r][c].getGreen() 
+              + pixels[r][c].getBlue()) / 3;
+              pixels[r][c].setRed(average);
+              pixels[r][c].setGreen(average);
+              pixels[r][c].setBlue(average);
+            }
+        }
+    }
+  
+  //mirrorVerticalRighttToLeft
+  public void mirrorVerticalRightToLeft(){
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel leftPixel = null;
+      Pixel rightPixel = null;
+      int width = pixels[0].length;
+      for(int r = 0; r < pixels.length; r++){
+          for(int c = 0; c < width / 2; c++){
+              rightPixel = pixels[r][c];
+              leftPixel = pixels[r][width - 1 - c];
+              leftPixel.setColor(rightPixel.getColor());
+            }
+        }
+    }
+    
+  //mirrorHorizontal
+  public void mirrorHorizantal(){
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel abovePixel = null;
+      Pixel belowPixel = null;
+      int length = pixels.length;
+      for(int r = 0; r < length / 2; r++){
+          for(int c = 0; c < pixels[r].length; c++){
+              abovePixel = pixels[r][c];
+              belowPixel = pixels[length -1 - r][c];
+              belowPixel.setColor(abovePixel.getColor());
+            }
+        }
+    }
+    
   /* Main method for testing - each class in Java can have a main 
    * method 
    */

@@ -1,4 +1,4 @@
-
+ 
 /**
  * 
  * CellMatrix
@@ -91,13 +91,28 @@ public class CellMatrix{
         int greatest = 0;
         for(int r = 0; r < cells.length; r++){
             for(int c = 0; c < cells[r].length; c++){
-                int total;
+                int total = 0;
                 Cell[] neighbors = cells[r][c].getNeighbors();
-                int neighbor0 = neighbors[0].getInt();
-                int neighbor1 = neighbors[1].getInt();
-                int neighbor2 = neighbors[2].getInt();
-                int neighbor3 = neighbors[3].getInt();
-                
+                if(r == 0 && c == 0){
+                    total = neighbors[1].getInt() + neighbors[2].getInt();
+                }else if(r == 0 && c == 3){
+                    total = neighbors[2].getInt() + neighbors[3].getInt();
+                }else if(r == 0 && c != 3){
+                    total = neighbors[1].getInt() + neighbors[2].getInt() + neighbors[3].getInt();
+                }else if(r != 2 && r != 0 && c == 0){
+                    total = neighbors[0].getInt() + neighbors[2].getInt() + neighbors[1].getInt();
+                }else if(r == 2 && c == 0){
+                    total = neighbors[0].getInt() + neighbors[1].getInt();
+                }else if(r == 2 && c == 3){
+                    total = neighbors[0].getInt() + neighbors[3].getInt();
+                }else if(r == 2 && c != 0){
+                    total = neighbors[0].getInt() + neighbors[1].getInt() + neighbors[3].getInt();
+                }else if(r != 0 && c == 3){
+                    total = neighbors[0].getInt() + neighbors[2].getInt() + neighbors[3].getInt();
+                }else{
+                    total = neighbors[0].getInt() + neighbors[1].getInt() + neighbors[2].getInt()
+                    + neighbors[3].getInt();
+                }
                 if(greatest < total){
                     greatest = total;
                 }

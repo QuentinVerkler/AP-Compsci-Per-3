@@ -138,8 +138,11 @@ public class Picture extends SimplePicture
         rightPixel = pixels[row]                       
                          [mirrorPoint - col + mirrorPoint];
         rightPixel.setColor(leftPixel.getColor());
+        count++;
       }
     }
+    System.out.print(count);
+    //18410
   }
   
   /** copy from the passed fromPic to the
@@ -263,15 +266,16 @@ public class Picture extends SimplePicture
       int width = pixels[0].length;
       for(int r = 0; r < pixels.length; r++){
           for(int c = 0; c < width / 2; c++){
-              rightPixel = pixels[r][c];
-              leftPixel = pixels[r][width - 1 - c];
+              int away = width/2;
+              rightPixel = pixels[r][width - 1 - c];
+              leftPixel = pixels[r][c];
               leftPixel.setColor(rightPixel.getColor());
             }
         }
     }
     
   //mirrorHorizontal
-  public void mirrorHorizantal(){
+  public void mirrorHorizontal(){
       Pixel[][] pixels = this.getPixels2D();
       Pixel abovePixel = null;
       Pixel belowPixel = null;
@@ -283,6 +287,26 @@ public class Picture extends SimplePicture
               belowPixel.setColor(abovePixel.getColor());
             }
         }
+    }
+    
+  //mirrorHorizontalBotToTop
+  public void mirrorHorizontalBotToTop(){
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel abovePixel = null;
+      Pixel belowPixel = null;
+      int length = pixels.length;
+      for(int r = 0; r < length / 2; r++){
+          for(int c = 0; c < pixels[r].length; c++){
+              abovePixel = pixels[r][c];
+              belowPixel = pixels[length -1 - r][c];
+              abovePixel.setColor(belowPixel.getColor());
+            }
+        }
+    }
+    
+  //mirrorArms
+  public void mirrorArms(){
+      
     }
     
   /* Main method for testing - each class in Java can have a main 

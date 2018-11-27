@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Cell
+comment0.text=\r\n\ @author\ (eettlin)\ \r\n\ @version\ (11\ 26\ 18)\r\n
+comment1.params=a
+comment1.target=Cell(int)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Cell\r\n
+comment2.params=
+comment2.target=int\ getInt()
+comment2.text=\r\n\ ++++++++++++++\ \ getters\ and\ setters\r\n
+comment3.params=
+comment3.target=Cell[]\ getNeighbors()
+numComments=4

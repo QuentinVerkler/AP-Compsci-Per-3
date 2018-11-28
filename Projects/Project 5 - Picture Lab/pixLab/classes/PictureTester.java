@@ -96,6 +96,13 @@ public class PictureTester
   public static void testMirrorArms(){
       Picture snowman = new Picture("snowman.jpg");
       snowman.explore();
+      snowman.mirrorArms();
+      snowman.explore();
+    }
+    
+  public static void testMirrorGull(){
+      Picture gull = new Picture("seagull.jpg");
+      gull.explore();
     }
     
   /** Main method for testing.  Every class can have a main
@@ -117,8 +124,8 @@ public class PictureTester
     //testMirrorHorizontal();
     //testMirrorHorizontalBotToTop();
     //testMirrorTemple();
-    testMirrorArms();
-    //testMirrorGull();
+    //testMirrorArms();
+    testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();

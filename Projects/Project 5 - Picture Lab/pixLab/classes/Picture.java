@@ -306,7 +306,23 @@ public class Picture extends SimplePicture
     
   //mirrorArms
   public void mirrorArms(){
-      
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel topPixel = null;
+      Pixel bottomPixel = null;
+      int mirrorPoint = 196;
+      for(int r = 159; r < mirrorPoint; r++){
+          for(int c = 105; c < 293; c++){
+              topPixel = pixels[r][c];
+              bottomPixel = pixels[mirrorPoint - r + mirrorPoint][c];
+              bottomPixel.setColor(topPixel.getColor());
+            }
+        }
+    }
+    
+  //mirrorGulls
+  public void mirrorGull(){
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel leftPixel = null;
     }
     
   /* Main method for testing - each class in Java can have a main 

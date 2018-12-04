@@ -103,6 +103,8 @@ public class PictureTester
   public static void testMirrorGull(){
       Picture gull = new Picture("seagull.jpg");
       gull.explore();
+      gull.mirrorGull();
+      gull.explore();
     }
     
   /** Main method for testing.  Every class can have a main

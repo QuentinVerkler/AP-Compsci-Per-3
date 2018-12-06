@@ -175,6 +175,36 @@ public class Picture extends SimplePicture
       }
     }   
   }
+  
+  //myCollage methods
+  public void myCopy(Picture fromPic, int startRow, int startCol, int endRow, int endCol){
+      Pixel fromPixel = null;
+      Pixel toPixel = null;
+      Pixel[][] toPixels = this.getPixels2D();
+      Pixel[][] fromPixels = fromPic.getPixels2D();
+      for(int fromRow = 0, toRow = startRow; fromRow < endRow && toRow < toPixels.length;
+          fromRow++, toRow++){
+            for(int fromCol = 0, toCol = startCol; fromCol < endCol && toCol < toPixels[0].length;
+               fromCol++, toCol++){
+                 fromPixel = fromPixels[fromRow][fromCol];
+                 toPixel = toPixels[toRow][toCol];
+                 toPixel.setColor(fromPixel.getColor());
+              }
+          }
+    }
+    
+  public void createMyCollage(){
+    Picture commandos = new Picture("CloneCommandos.jpg");
+    Picture droids = new Picture("droids.jpg");
+    this.myCopy(commandos, 843, 214, 98, 223);
+    Picture commandosOnlyBlue = new Picture("CloneCommandos.jpg");
+    commandosOnlyBlue.keepOnlyBlue();
+    this.myCopy(commandosOnlyBlue, 1000, 130, 98, 223);
+    droids.negate();
+    this.myCopy(droids, 0, 0, 680, 567);
+    this.write("myCollage.jpg");
+  }
+    
 
   /** Method to create a collage of several pictures */
   public void createCollage()

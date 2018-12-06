@@ -6,7 +6,7 @@
  * 
  * @author Barbara Ericson 
  */
-public class PictureTester
+public class PictureTester 
 {
   /** Method to test zeroBlue */
   public static void testZeroBlue()
@@ -107,6 +107,16 @@ public class PictureTester
       gull.explore();
     }
     
+  public static void testMyCollage(){
+      Picture commandos = new Picture("CloneCommandos.jpg");
+      Picture droids = new Picture("droids.jpg");
+      Picture rock = new Picture("StarWarsRock.jpg");
+      rock.createMyCollage();
+      rock.explore();
+      //commandos.explore();
+      //droids.explore();
+    }
+    
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -127,7 +137,8 @@ public class PictureTester
     //testMirrorHorizontalBotToTop();
     //testMirrorTemple();
     //testMirrorArms();
-    testMirrorGull();
+    //testMirrorGull();
+    testMyCollage();
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();

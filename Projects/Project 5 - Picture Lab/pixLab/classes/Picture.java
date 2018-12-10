@@ -227,12 +227,13 @@ public class Picture extends SimplePicture
   /** Method to show large changes in color 
     * @param edgeDist the distance for finding edges
     */
-  public void edgeDetection(int edgeDist)
+  public void edgeDetection(int edgeDist, Picture thatPic)
   {
     Pixel leftPixel = null;
     Pixel rightPixel = null;
     Pixel[][] pixels = this.getPixels2D();
     Color rightColor = null;
+    Pixel[][] copyPixels = thatPic.getPixels2D();
     for (int row = 0; row < pixels.length; row++)
     {
       for (int col = 0; 
@@ -246,9 +247,54 @@ public class Picture extends SimplePicture
           leftPixel.setColor(Color.BLACK);
         else
           leftPixel.setColor(Color.WHITE);
+        
       }
     }
+    //top to bottom 
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    Color bottomColor = null;
+    Pixel destinationTopPixel = null;
+    for(int row = 0; row < copyPixels.length-1; row++){
+        for(int col = 0; col < copyPixels[row].length; col++){
+            topPixel = copyPixels[row][col];
+            bottomPixel = copyPixels[row+1][col];
+            bottomColor = bottomPixel.getColor();
+            destinationTopPixel = pixels[row][col];
+            if (topPixel.colorDistance(bottomColor) > edgeDist){
+                destinationTopPixel.setColor(Color.BLACK);
+            }else{
+                destinationTopPixel.setColor(Color.WHITE);
+            }
+        }
+    }
   }
+  
+  //Change line color method
+  public void changingLineColor(){
+      Pixel pixel = null;
+      Pixel[][] pixels = this.getPixels2D();
+      for(int r = 0; r < pixels.length; r++){
+          for(int c = 0; c < pixels[r].length; c++){
+              Color pixelColor = pixels[r][c].getColor();
+              //System.out.println("Color: " + pixelColor + " " + Color.BLACK);
+              if(pixelColor.equals(Color.BLACK)){
+                  int random = (int)(Math.random()*4);
+                  if(random == 0){
+                      pixels[r][c].setColor(Color.YELLOW);
+                    } else if(random == 1){
+                      pixels[r][c].setColor(Color.RED);
+                    }else if(random == 2){
+                      pixels[r][c].setColor(Color.GREEN);
+                    }else if(random == 3){
+                      pixels[r][c].setColor(Color.BLUE);
+                    }
+                } else{
+                    pixels[r][c].setColor(Color.BLACK);
+                }
+            }
+        }
+    }
   
   //keepOnlyBlue method
   public void keepOnlyBlue(){

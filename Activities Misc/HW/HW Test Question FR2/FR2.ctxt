@@ -5,4 +5,6 @@ comment1.params=
 comment1.target=void\ main()
 comment2.params=str
 comment2.target=java.lang.String\ transformILike(java.lang.String)
-numComments=3
+comment3.params=levels\ maxLevel
+comment3.target=int\ adjustMaxMin(java.util.ArrayList,\ int)
+numComments=4

@@ -51,6 +51,7 @@ public class PictureTester
     swan.edgeDetection(10, swan1);
     swan.changingLineColor();
     swan.explore();
+    swan.write("colorMe.jpg");
   }
   
   public static void testKeepOnlyBlue(){

@@ -8,7 +8,15 @@ import java.util.ArrayList;
 public class FR2
 {
     public static void main(){
-        System.out.println(transformILike("I like people"));
+        //System.out.println(transformILike("I like people"));
+        ArrayList<Integer> levels = new ArrayList<Integer>();
+        levels.add(-3);
+        levels.add(-2);
+        levels.add(-1);
+        levels.add(1);
+        levels.add(2);
+        levels.add(3);
+        System.out.println(adjustMaxMin(levels, 2));
     }
     public static String transformILike(String str){
         ArrayList <String> phrases = new ArrayList<String>();
@@ -21,4 +29,24 @@ public class FR2
         String beginning = phrases.get(phraseSelector);
         return beginning + object + "?";
     }
+    public static int adjustMaxMin(ArrayList<Integer> levels, int maxLevel){
+ /* Complete this mehtod */
+        int minLevel = maxLevel * -1;
+        int timesChanged = 0;
+        for(int i = 0; i < levels.size(); i++){
+            int thisLevel = levels.get(i);
+            if(thisLevel > maxLevel || thisLevel < minLevel){
+                timesChanged++;
+            }
+            while(thisLevel > maxLevel){
+		thisLevel--;
+            }
+            while(thisLevel < minLevel){
+		thisLevel++;
+            }
+	}
+	return timesChanged;
+}
+
+
 }

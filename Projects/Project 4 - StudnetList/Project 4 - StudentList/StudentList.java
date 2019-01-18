@@ -272,4 +272,52 @@ public class StudentList
         }
     }
     
+    public void sortList(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("What do you want to sort by? 1: Name. 2: Number.");
+        String choice = input.nextLine();
+        //if the input is a letter, sort by letter. If it's a number, sort by number
+        if(choice.equals("1")){
+            
+        }else{
+            
+        }
+    }
+    
+    public void mergeSortInt(int[] nums, int size){
+        //int size = studentList.size();
+        if(size < 2)
+            return;
+        int mid = size/2;
+        int[] l = new int[mid];
+        int[] r = new int[size-mid];
+        for(int i = 0; i < mid; i++){
+            Student stuObj = studentList.get(i);
+            l[i] = stuObj.getStuNumber();
+        }
+        for(int i = mid; i < size; i++){
+            Student stuObj = studentList.get(i);
+            l[i] = stuObj.getStuNumber();
+        }
+        mergeSortInt(l, mid);
+        mergeSortInt(r, size-mid);
+        
+        mergeInt(nums, l, r, mid, size-mid);
+    }
+    
+    public void mergeInt(int[] a, int[] l, int r[], int left, int right){
+        int i = 0, j = 0, k = 0;
+        while(i < left && j < right){
+            if(l[i] <= r[j])
+                a[k++] = l[i++];
+            else
+                a[k++] = r[j++];
+        }
+        while (i < left){
+            a[k++] = l[i++];
+        }
+        while (j < right){
+            a[k++] = r[j++];
+        }
+    }
 }

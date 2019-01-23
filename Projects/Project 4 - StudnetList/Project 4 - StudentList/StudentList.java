@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 /**
  * Write a description of class StudentList here.
@@ -284,40 +285,49 @@ public class StudentList
         }
     }
     
-    public void mergeSortInt(int[] nums, int size){
-        //int size = studentList.size();
+    public void mergeSortInt(ArrayList<Integer> nums, int size){
+        //int size = nums.size();
         if(size < 2)
             return;
         int mid = size/2;
-        int[] l = new int[mid];
-        int[] r = new int[size-mid];
+        ArrayList<Integer> l = new ArrayList<Integer>();
+        ArrayList<Integer> r = new ArrayList<Integer>();
+        for(int i = 0; i < mid; i++){
+            l.add(nums.get(i));
+        }
+        for(int i = mid; i < size; i++){
+            r.add(nums.get(i));
+        }
+        //int[] l = new int[mid];
+        //int[] r = new int[size-mid];
         for(int i = 0; i < mid; i++){
             Student stuObj = studentList.get(i);
-            l[i] = stuObj.getStuNumber();
+            l.set(i, stuObj.getStuNumber());
         }
         for(int i = mid; i < size; i++){
             Student stuObj = studentList.get(i);
-            l[i] = stuObj.getStuNumber();
+            r.set(i, stuObj.getStuNumber());
         }
         mergeSortInt(l, mid);
         mergeSortInt(r, size-mid);
         
-        mergeInt(nums, l, r, mid, size-mid);
+        mergeInt(nums, l, r, mid, size);
     }
     
-    public void mergeInt(int[] a, int[] l, int r[], int left, int right){
+    public void mergeInt(ArrayList<Integer> a, ArrayList<Integer> l, 
+                        ArrayList<Integer> r, int left, int right){
         int i = 0, j = 0, k = 0;
         while(i < left && j < right){
-            if(l[i] <= r[j])
-                a[k++] = l[i++];
+            if(l.get(i) <= r.get(j))
+                a.set(k++, l.get(i++));
             else
-                a[k++] = r[j++];
+                a.set(k++, r.get(j++));
         }
         while (i < left){
-            a[k++] = l[i++];
+            a.set(k++, l.get(i++));
         }
         while (j < right){
-            a[k++] = r[j++];
+            a.set(k++, r.get(j++));
         }
     }
 }

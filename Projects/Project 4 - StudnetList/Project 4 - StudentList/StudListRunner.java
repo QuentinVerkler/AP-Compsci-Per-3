@@ -12,7 +12,7 @@ import java.util.Scanner;
         String statement = input;
         if(!(statement.equals("1") || statement.equals("2") || statement.equals("3") 
         || statement.equals("4") || statement.equals("5") || statement.equals("6")
-        || statement.equals("7"))){
+        || statement.equals("7")) || statement.equals("8")){
            System.out.println("Please press a valid key");
        }
     return statement;
@@ -29,6 +29,7 @@ import java.util.Scanner;
         System.out.println("Press 5 to print all students");
         System.out.println("Press 6 to print out a certain student");
         System.out.println("Press 7 to search for students using a specific parameter");
+        System.out.println("Press 8 to sort the list");
         System.out.println("Type in 'Bye' to exit");
         //Setting up StudentLIst, giving it user input
         
@@ -53,6 +54,8 @@ import java.util.Scanner;
                 studList.printStudent();
             }else if(input.equals("7")){
                 studList.filterSearchStudentList();
+            }else if(input.equals("8")){
+                studList.sortList();
             }
             
         }

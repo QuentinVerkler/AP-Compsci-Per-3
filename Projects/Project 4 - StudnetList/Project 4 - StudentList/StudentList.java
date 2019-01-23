@@ -281,17 +281,17 @@ public class StudentList
         if(choice.equals("1")){
             
         }else{
-            
+            mergeSortInt(studentList, studentList.size());
         }
     }
     
-    public void mergeSortInt(ArrayList<Integer> nums, int size){
+    public void mergeSortInt(ArrayList<Student> nums, int size){
         //int size = nums.size();
         if(size < 2)
             return;
         int mid = size/2;
-        ArrayList<Integer> l = new ArrayList<Integer>();
-        ArrayList<Integer> r = new ArrayList<Integer>();
+        ArrayList<Student> l = new ArrayList<Student>();
+        ArrayList<Student> r = new ArrayList<Student>();
         for(int i = 0; i < mid; i++){
             l.add(nums.get(i));
         }
@@ -302,11 +302,11 @@ public class StudentList
         //int[] r = new int[size-mid];
         for(int i = 0; i < mid; i++){
             Student stuObj = studentList.get(i);
-            l.set(i, stuObj.getStuNumber());
+            l.set(i, stuObj);
         }
         for(int i = mid; i < size; i++){
             Student stuObj = studentList.get(i);
-            r.set(i, stuObj.getStuNumber());
+            r.set(i - mid, stuObj);
         }
         mergeSortInt(l, mid);
         mergeSortInt(r, size-mid);
@@ -314,11 +314,13 @@ public class StudentList
         mergeInt(nums, l, r, mid, size);
     }
     
-    public void mergeInt(ArrayList<Integer> a, ArrayList<Integer> l, 
-                        ArrayList<Integer> r, int left, int right){
+    public void mergeInt(ArrayList<Student> a, ArrayList<Student> l, 
+                        ArrayList<Student> r, int left, int right){
         int i = 0, j = 0, k = 0;
         while(i < left && j < right){
-            if(l.get(i) <= r.get(j))
+            Student stuI = l.get(i);
+            Student stuJ = r.get(j);
+            if(stuI.getStuNumber() <= stuJ.getStuNumber())
                 a.set(k++, l.get(i++));
             else
                 a.set(k++, r.get(j++));

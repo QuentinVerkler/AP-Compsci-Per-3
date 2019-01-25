@@ -282,41 +282,80 @@ public class StudentList
             
         }else{
             mergeSortInt(studentList, studentList.size());
+            System.out.println("The list has been sorted based on the student number. Press anything to continue");
         }
+        String exit = input.nextLine();
+        System.out.print("\u000c");
     }
     
-    public void mergeSortInt(ArrayList<Student> nums, int size){
-        //int size = nums.size();
+    public void mergeSortStr(ArrayList<Student> students, int size){
         if(size < 2)
             return;
         int mid = size/2;
         ArrayList<Student> l = new ArrayList<Student>();
         ArrayList<Student> r = new ArrayList<Student>();
+        //loading left array and right array
+        for(int i = 0; i < mid; i++){
+            l.add(students.get(i));
+        }
+        for(int i = mid; i < size; i++){
+            r.add(students.get(i));
+        }
+        //do it again for both sides until gets to size of one
+        mergeSortStr(l, mid);
+        mergeSortStr(r, size - mid);
+        //part that actually compares and changes
+        mergeStr(students, l, r, mid, size - mid);
+    }
+    
+    public void mergeStr(ArrayList<Student> a, ArrayList<Student> l, 
+                        ArrayList<Student> r, int left, int right){
+        //place variables
+        int i =  0, j = 0, k = 0;
+        //actual comparer, will change place
+        while(i < left && j < right){
+            Student stuI = l.get(i);
+            Student stuJ = r.get(j);
+            
+        }
+        while (i < left){
+            a.set(k++, l.get(i++));
+        }
+        while (j < right){
+            a.set(k++, r.get(j++));
+        }
+    }
+    
+    public void compareNames(String name1, String name){
+        
+    }
+    
+    public void mergeSortInt(ArrayList<Student> nums, int size){
+        if(size < 2)
+            return;
+        int mid = size/2;
+        ArrayList<Student> l = new ArrayList<Student>();
+        ArrayList<Student> r = new ArrayList<Student>();
+        //loading left array and right array
         for(int i = 0; i < mid; i++){
             l.add(nums.get(i));
         }
         for(int i = mid; i < size; i++){
             r.add(nums.get(i));
         }
-        //int[] l = new int[mid];
-        //int[] r = new int[size-mid];
-        for(int i = 0; i < mid; i++){
-            Student stuObj = studentList.get(i);
-            l.set(i, stuObj);
-        }
-        for(int i = mid; i < size; i++){
-            Student stuObj = studentList.get(i);
-            r.set(i - mid, stuObj);
-        }
+        //do it again for both sides until gets to size of one
         mergeSortInt(l, mid);
         mergeSortInt(r, size-mid);
-        
-        mergeInt(nums, l, r, mid, size);
+        //part that actually compares and change
+        mergeInt(nums, l, r, mid, size - mid);
     }
     
+    //connects to mergeSortInt
     public void mergeInt(ArrayList<Student> a, ArrayList<Student> l, 
                         ArrayList<Student> r, int left, int right){
+        //place variables
         int i = 0, j = 0, k = 0;
+        //actual comparer, will change place
         while(i < left && j < right){
             Student stuI = l.get(i);
             Student stuJ = r.get(j);

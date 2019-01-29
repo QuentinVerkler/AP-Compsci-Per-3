@@ -68,24 +68,47 @@ public class StudentList
         String name = input.nextLine();
         String checkResponse = " ";
         //checks if name exists
-        for(int i = 0; i < studentList.size(); i++){
-            Student stuObject = studentList.get(i);
-            //Parses input into just name
-            //int endFirstName = name.indexOf(" ");
-            //int endSecondName = name.indexOf(" ", endFirstName);
-            //String section = name.substring(0, endFirstName);
-            String stringNum = Integer.toString(stuObject.getStuNumber());
-            //if the student exists, it will print out all the information of the student
-            if(stuObject.getFullName().indexOf(name) != -1 || stringNum.indexOf(name) != -1){
-                //makes a string that will be used check if a name was found
-                checkResponse = "Name: " + stuObject.getFullName();
-                System.out.println(checkResponse);
-                System.out.println("Student number: " + stuObject.getStuNumber());
-                System.out.println("GPA: " + stuObject.getGPA());
-                System.out.println("Press anything to continue");
-                String exit = input.nextLine();
-                System.out.print("\u000c");
+        System.out.println("If the list is sorted based on number, press 1. If the list is sorted based on name, press 2. If the list isn't sorted, press 3");
+        String choice = input.nextLine();
+        //do this if list isn't sorted
+        if(choice.equals("3")){
+            for(int i = 0; i < studentList.size(); i++){
+                Student stuObject = studentList.get(i);
+                //Parses input into just name
+                //int endFirstName = name.indexOf(" ");
+                //int endSecondName = name.indexOf(" ", endFirstName);
+                //String section = name.substring(0, endFirstName);
+                String stringNum = Integer.toString(stuObject.getStuNumber());
+                //if the student exists, it will print out all the information of the student
+                if(stuObject.getFullName().indexOf(name) != -1 || stringNum.indexOf(name) != -1){
+                    //makes a string that will be used check if a name was found
+                    checkResponse = "Name: " + stuObject.getFullName();
+                    System.out.println(checkResponse);
+                    System.out.println("Student number: " + stuObject.getStuNumber());
+                    System.out.println("GPA: " + stuObject.getGPA());
+                    System.out.println("Press anything to continue");
+                    String exit = input.nextLine();
+                    System.out.print("\u000c");
+                }
             }
+        }else 
+        //if the list was sorted on name, do this
+        if(choice.equals("2")){
+            System.out.println("Method inoperable. Sorry. Press anything to continue");
+            String exit = input.nextLine();
+            System.out.print("\u000c");
+        }else
+        //if the list was storted based on student number, do this
+        if(choice.equals("1")){
+            int num = Integer.parseInt(name);
+            Student stuObject = binarySearchNum(studentList, studentList.size(), num);
+            checkResponse = "Name: " + stuObject.getFullName();
+            System.out.println(checkResponse);
+            System.out.println("Student number: " + stuObject.getStuNumber());
+            System.out.println("GPA: " + stuObject.getGPA());
+            System.out.println("Press anything to continue");
+            String exit = input.nextLine();
+            System.out.print("\u000c");
         }
         //if a name was not found, then print name was not found
         if(checkResponse.equals(" ") == true){
@@ -93,6 +116,27 @@ public class StudentList
             String exit = input.nextLine();
             System.out.print("\u000c");
         }
+    }
+    
+    public Student binarySearchNum(ArrayList<Student> list, int size, int num){
+        if(size == 1 && list.get(0).getStuNumber() == num)
+            return list.get(0);
+        Student place = list.get(size/2);
+        if(place.getStuNumber() < num){
+            ArrayList<Student> upperHalf = new ArrayList<Student>();
+            for(int i = size/2; i < size; i++){
+                upperHalf.add(list.get(i));
+            }
+            return binarySearchNum(upperHalf, upperHalf.size(), num);
+        }else if(place.getStuNumber() > num){
+            ArrayList<Student> lowerHalf = new ArrayList<Student>();
+            for(int i = 0; i < size/2; i++){
+                lowerHalf.add(list.get(i));
+            }
+            return binarySearchNum(lowerHalf, lowerHalf.size(), num);
+        }else 
+            return place;
+        
     }
 
     public void deleteStudent(){

@@ -279,7 +279,8 @@ public class StudentList
         String choice = input.nextLine();
         //if the input is a letter, sort by letter. If it's a number, sort by number
         if(choice.equals("1")){
-            
+            mergeSortStr(studentList, studentList.size());
+            System.out.println("The list has been sorted based on name. Press anything to continue");
         }else{
             mergeSortInt(studentList, studentList.size());
             System.out.println("The list has been sorted based on the student number. Press anything to continue");
@@ -316,7 +317,10 @@ public class StudentList
         while(i < left && j < right){
             Student stuI = l.get(i);
             Student stuJ = r.get(j);
-            
+            if(compareNames(stuI.getFullName(), stuJ.getFullName()) == 1)
+                a.set(k++, l.get(i++));
+            else
+                a.set(k++, r.get(i++));
         }
         while (i < left){
             a.set(k++, l.get(i++));
@@ -326,8 +330,24 @@ public class StudentList
         }
     }
     
-    public void compareNames(String name1, String name){
-        
+    public int compareNames(String name1, String name2){
+        name1 = name1.toUpperCase();
+        name2 = name2.toUpperCase();
+        //if either name is now empter, it will return the empty name to be first
+        if(name1.length() == 1)
+            return 1;
+        if(name2.length() == 2)
+            return 2;
+        //if the first name is higher in alphabet, will return 1
+        if(name1.charAt(0) < name2.charAt(0))
+            return 1;
+        //if the second name is higher, will return 2
+        if(name2.charAt(0) < name1.charAt(0))
+            return 2;
+        //if the letters are the same, then will go through it again
+        if(name1.charAt(0) == name2.charAt(0))
+            return compareNames(name1.substring(1), name2.substring(1));
+        return 0;
     }
     
     public void mergeSortInt(ArrayList<Student> nums, int size){
